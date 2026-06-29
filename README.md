@@ -8,6 +8,14 @@
 
 ---
 
+## Architecture
+
+This lab demonstrates the end-to-end collection, forwarding, analysis, and investigation of Windows endpoint telemetry using Splunk Cloud and Wireshark.
+
+![DFIR Architecture](diagrams/architecture-diagram.png)
+
+---
+
 # Overview
 
 This project demonstrates the deployment and configuration of a Splunk Universal Forwarder to securely transmit Windows Event Logs into Splunk Cloud for centralized monitoring and investigation.
