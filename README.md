@@ -97,6 +97,33 @@ Search • Detection • Investigation
 
 ---
 
+# Repository Structure
+
+'''
+dfir-incident-response-lab/
+│
+├── README.md
+│
+├── incident-report/
+│   └── Incident-Report.md
+│
+├── mitre/
+│   └── ATTACK-Mapping.md
+│
+├── screenshots/
+│   ├── step-1-active-forwarder.png
+│   ├── step-2-inputs-conf.png
+│   ├── step-3-list-monitor.png
+│   ├── step-4-splunk-events.png
+│   ├── step-5-event-summary.png
+│   ├── step-6-wireshark-capture.png
+│   ├── step-7-tcp-stream.png
+│   └── step-8-protocol-hierarchy.png
+│
+└── diagrams/
+    └── architecture-diagram.png
+
+---
 # Configuration Process
 
 ## Step 1 — Install Universal Forwarder
@@ -342,31 +369,7 @@ This project demonstrates practical experience with:
 
 ---
 
-# Repository Structure
 
-'''
-dfir-incident-response-lab/
-│
-├── README.md
-│
-├── incident-report/
-│   └── Incident-Report.md
-│
-├── mitre/
-│   └── ATTACK-Mapping.md
-│
-├── screenshots/
-│   ├── step-1-active-forwarder.png
-│   ├── step-2-inputs-conf.png
-│   ├── step-3-list-monitor.png
-│   ├── step-4-splunk-events.png
-│   ├── step-5-event-summary.png
-│   ├── step-6-wireshark-capture.png
-│   ├── step-7-tcp-stream.png
-│   └── step-8-protocol-hierarchy.png
-│
-└── diagrams/
-    └── architecture-diagram.png
 '''
 ---
 
