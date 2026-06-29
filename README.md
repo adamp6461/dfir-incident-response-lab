@@ -344,7 +344,7 @@ This project demonstrates practical experience with:
 
 # Repository Structure
 
-
+'''
 dfir-incident-response-lab/
 │
 ├── README.md
@@ -367,7 +367,7 @@ dfir-incident-response-lab/
 │
 └── diagrams/
     └── architecture-diagram.png
-
+'''
 ---
 
 # Lessons Learned
