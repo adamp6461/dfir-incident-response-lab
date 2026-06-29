@@ -99,13 +99,14 @@ Search • Detection • Investigation
 
 # Repository Structure
 
-'''
+## Repository Structure
+
+```text
 dfir-incident-response-lab/
 │
 ├── README.md
-│
 ├── incident-report/
-│   └── Incident-Report.md
+│   └── Incident_Report.md
 │
 ├── mitre/
 │   └── ATTACK-Mapping.md
@@ -122,7 +123,7 @@ dfir-incident-response-lab/
 │
 └── diagrams/
     └── architecture-diagram.png
-
+```
 ---
 # Configuration Process
 
