@@ -101,9 +101,17 @@ Search • Detection • Investigation
 # Repository Structure
 
 ```text
+## Repository Structure
+
+```text
 dfir-incident-response-lab/
 │
 ├── README.md
+│
+├── config/
+│   ├── inputs.conf
+│   └── outputs.conf
+│
 ├── incident-report/
 │   └── Incident_Report.md
 │
