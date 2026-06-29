@@ -97,9 +97,9 @@ Installed Splunk Universal Forwarder on the Windows endpoint.
 
 Screenshot:
 
-```
+
 ![Step 1 - Active Forwarder](./screenshots/step-1-active-forwarder.png)
-```
+
 
 ---
 
