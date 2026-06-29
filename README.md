@@ -115,9 +115,9 @@ Windows Event Logs.
 
 Screenshot:
 
-```
-screenshots/step-2-inputs-conf.png
-```
+
+![Step 2 - Inputs Configuration](./screenshots/step-2-inputs-conf.png)
+
 
 ---
 
@@ -127,9 +127,9 @@ Verified the Universal Forwarder was actively monitoring configured inputs.
 
 Screenshot:
 
-```
-screenshots/step-3-list-monitor.png
-```
+
+![Step 3 - Monitoring Configuration](./screenshots/step-3-list-monitor.png)
+
 
 ---
 
@@ -145,9 +145,9 @@ index=main sourcetype=WinEventLog*
 
 Screenshot:
 
-```
-screenshots/step-4-splunk-events.png
-```
+
+![Step 4 - Splunk Events](./screenshots/step-4-splunk-events.png)
+
 
 ---
 
@@ -164,9 +164,9 @@ index=main
 
 Screenshot:
 
-```
-screenshots/step-5-event-summary.png
-```
+
+![Step 5 - Event Summary](./screenshots/step-5-event-summary.png)
+
 
 ---
 
@@ -185,9 +185,9 @@ Activities included:
 
 Screenshot:
 
-```
-screenshots/step-6-wireshark-capture.png
-```
+
+![Step 6 - Wireshark Capture](./screenshots/step-6-wireshark-capture.png)
+
 
 ---
 
@@ -197,9 +197,9 @@ Followed an encrypted TCP stream to inspect client/server communication.
 
 Screenshot:
 
-```
-screenshots/step-7-tcp-stream.png
-```
+
+![Step 7 - TCP Stream](./screenshots/step-7-tcp-stream.png)
+
 
 ---
 
@@ -217,9 +217,9 @@ Protocols observed included:
 
 Screenshot:
 
-```
-screenshots/step-8-protocol-hierarchy.png
-```
+
+![Step 8 - Protocol Hierarchy](./screenshots/step-8-protocol-hierarchy.png)
+
 
 ---
 
