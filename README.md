@@ -1,174 +1,379 @@
-# Digital Forensics & Incident Response (DFIR) Lab
+# Splunk Cloud SIEM Monitoring & Incident Response Lab
 
-![Windows](https://img.shields.io/badge/Platform-Windows-blue) 
-
-![Splunk](https://img.shields.io/badge/SIEM-Splunk-green)
-
-![Wireshark](https://img.shields.io/badge/Network-Wireshark-blue)
-
-![MITRE ATT&CK](https://img.shields.io/badge/Framework-MITRE_ATT%26CK-red)
-
-![DFIR](https://img.shields.io/badge/Discipline-DFIR-orange)
-
-## Overview
-
-This project documents a simulated Digital Forensics and Incident Response (DFIR) investigation for a suspected phishing attack within a fictional organization, **AP Technology Group**.
-
-The objective of this investigation was to identify suspicious activity, collect evidence, analyze system and network artifacts, map attacker behavior to the MITRE ATT&CK framework, and document the complete incident response lifecycle from detection through recovery.
-
-This repository demonstrates practical security operations skills using industry-standard tools including Splunk Enterprise, Wireshark, PowerShell, and MITRE ATT&CK.
+![Splunk](https://img.shields.io/badge/Splunk-Cloud-000000?style=for-the-badge&logo=splunk)
+![Windows](https://img.shields.io/badge/Windows-11-0078D6?style=for-the-badge&logo=windows11)
+![Wireshark](https://img.shields.io/badge/Wireshark-Network%20Analysis-1679A7?style=for-the-badge&logo=wireshark)
+![PowerShell](https://img.shields.io/badge/PowerShell-Automation-5391FE?style=for-the-badge&logo=powershell)
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red?style=for-the-badge)
 
 ---
 
-## Scenario
+# Overview
 
-An employee reported that their Windows workstation became noticeably slow after opening an email attachment that appeared to come from a trusted vendor.
+This project demonstrates the deployment and configuration of a Splunk Universal Forwarder to securely transmit Windows Event Logs into Splunk Cloud for centralized monitoring and investigation.
 
-Shortly after the report:
+The lab walks through the complete process of:
 
-- Suspicious PowerShell execution was detected.
-- Multiple failed authentication attempts were observed.
-- Splunk generated security alerts.
-- Unusual outbound network traffic was identified.
-- Security Operations initiated an incident response investigation.
-
-The goal was to determine the scope of the incident, identify indicators of compromise (IOCs), contain the affected system, and document the findings.
-
----
-
-## Objectives
-
-- Simulate a real-world security incident
-- Investigate endpoint activity
-- Analyze SIEM logs using Splunk
-- Review network traffic with Wireshark
-- Identify Indicators of Compromise (IOCs)
-- Map attacker techniques using MITRE ATT&CK
-- Document the complete incident response process
-- Produce a professional incident report
+- Installing Splunk Universal Forwarder
+- Authenticating with Splunk Cloud
+- Configuring Windows Event Log collection
+- Validating endpoint telemetry
+- Searching and analyzing events using SPL
+- Capturing network traffic with Wireshark
+- Documenting a simulated phishing investigation
+- Mapping observed activity to the MITRE ATT&CK Framework
 
 ---
 
-## Tools & Technologies
+# Lab Objectives
 
-- Splunk Enterprise
-- Wireshark
-- Windows PowerShell
-- Windows Event Logs
-- MITRE ATT&CK Framework
-- GitHub
-
----
-
-## Investigation Workflow
-
-1. Receive Security Alert
-2. Review Initial Evidence
-3. Analyze Windows Event Logs
-4. Investigate Splunk Alerts
-5. Capture & Analyze Network Traffic
-6. Identify Indicators of Compromise
-7. Map Activity to MITRE ATT&CK
-8. Contain the Incident
-9. Recover the System
-10. Document Findings
+- Deploy Splunk Universal Forwarder
+- Configure secure Splunk Cloud connectivity
+- Collect Windows Security, System, and Application logs
+- Validate endpoint telemetry ingestion
+- Perform SIEM searches using SPL
+- Capture network traffic with Wireshark
+- Document a simulated DFIR investigation
+- Demonstrate log correlation between endpoint and network telemetry
 
 ---
 
-## MITRE ATT&CK Techniques
+# Skills Demonstrated
 
-| Technique | Description |
-|------------|-------------|
-| T1566 | Phishing |
-| T1059.001 | PowerShell |
-| T1078 | Valid Accounts |
-| T1071 | Application Layer Protocol |
-| T1105 | Ingress Tool Transfer |
-
----
-
-## Indicators of Compromise (IOCs)
-
-Example artifacts identified during the investigation include:
-
-- Suspicious PowerShell execution
-- Multiple failed authentication attempts
-- Unexpected outbound network connections
-- Unrecognized IP addresses
-- Potential phishing attachment
-
----
-
-## Screenshots
-
-### Step 1
-Initial Security Alert
-
-![Step 1](screenshots/step-1.png)
-
----
-
-### Step 2
-Splunk Investigation
-
-![Step 2](screenshots/step-2.png)
-
----
-
-### Step 3
-Wireshark Network Analysis
-
-![Step 3](screenshots/step-3.png)
-
----
-
-### Step 4
-MITRE ATT&CK Mapping
-
-![Step 4](screenshots/step-4.png)
-
----
-
-### Step 5
-Incident Summary
-
-![Step 5](screenshots/step-5.png)
-
----
-
-## Skills Demonstrated
-
-- Digital Forensics
+- SIEM Administration
+- Splunk Cloud
+- Universal Forwarder Deployment
+- Windows Event Log Analysis
+- Security Monitoring
+- Endpoint Visibility
 - Incident Response
-- Threat Detection
-- SIEM Log Analysis
+- Threat Hunting
+- PowerShell
+- Wireshark Packet Analysis
 - Network Traffic Analysis
 - MITRE ATT&CK Mapping
-- Security Documentation
-- Root Cause Analysis
-- Technical Reporting
+- Technical Documentation
 
 ---
 
-## Lessons Learned
+# Lab Environment
 
-This project reinforced the importance of correlating endpoint, log, and network evidence to accurately identify malicious activity and reduce incident response time.
+| Component | Technology |
+|------------|------------|
+| Operating System | Windows 11 |
+| SIEM | Splunk Cloud |
+| Log Collection | Splunk Universal Forwarder |
+| Packet Capture | Wireshark |
+| Shell | PowerShell |
+| Event Source | Windows Event Logs |
+| Framework | MITRE ATT&CK |
 
-The investigation also emphasized the value of structured documentation, repeatable investigation processes, and standardized threat frameworks such as MITRE ATT&CK when responding to security incidents.
+---
+
+# Architecture
+
+```
+Windows 11 VM
+      │
+      │ Windows Event Logs
+      ▼
+Splunk Universal Forwarder
+      │
+      │ TLS Encrypted Forwarding
+      ▼
+Splunk Cloud
+      │
+      ▼
+Search • Detection • Investigation
+```
 
 ---
 
-## Future Improvements
+# Configuration Process
 
-Future enhancements may include:
+## Step 1 — Install Universal Forwarder
 
-- Sysmon log analysis
-- Windows Event ID correlation
-- YARA rule development
-- Sigma detection rules
-- Memory forensics
-- Disk image analysis
-- Malware reverse engineering
-- Automated IOC detection
+Installed Splunk Universal Forwarder on the Windows endpoint.
+
+Screenshot:
+
+```
+screenshots/step-1-active-forwarder.png
+```
 
 ---
+
+## Step 2 — Configure Windows Event Log Inputs
+
+Configured the Universal Forwarder to collect:
+
+- Security
+- System
+- Application
+
+Windows Event Logs.
+
+Screenshot:
+
+```
+screenshots/step-2-inputs-conf.png
+```
+
+---
+
+## Step 3 — Verify Monitoring Configuration
+
+Verified the Universal Forwarder was actively monitoring configured inputs.
+
+Screenshot:
+
+```
+screenshots/step-3-list-monitor.png
+```
+
+---
+
+## Step 4 — Validate Data in Splunk Cloud
+
+Confirmed Windows Event Logs were successfully arriving in Splunk Cloud.
+
+Example SPL:
+
+```spl
+index=main sourcetype=WinEventLog*
+```
+
+Screenshot:
+
+```
+screenshots/step-4-splunk-events.png
+```
+
+---
+
+## Step 5 — Event Summary
+
+Generated a summary of ingested events by source type.
+
+Example SPL:
+
+```spl
+index=main
+| stats count by sourcetype
+```
+
+Screenshot:
+
+```
+screenshots/step-5-event-summary.png
+```
+
+---
+
+# Wireshark Analysis
+
+## Step 6 — Capture Network Traffic
+
+Captured live endpoint traffic while generating network activity.
+
+Activities included:
+
+- ICMP
+- DNS
+- HTTPS
+- TLS
+
+Screenshot:
+
+```
+screenshots/step-6-wireshark-capture.png
+```
+
+---
+
+## Step 7 — Follow TCP Stream
+
+Followed an encrypted TCP stream to inspect client/server communication.
+
+Screenshot:
+
+```
+screenshots/step-7-tcp-stream.png
+```
+
+---
+
+## Step 8 — Protocol Hierarchy Statistics
+
+Reviewed packet distribution using Wireshark Protocol Hierarchy.
+
+Protocols observed included:
+
+- Ethernet
+- IPv4
+- TCP
+- TLS
+- DNS
+
+Screenshot:
+
+```
+screenshots/step-8-protocol-hierarchy.png
+```
+
+---
+
+# Sample SPL Searches
+
+Windows Security Events
+
+```spl
+index=main sourcetype=WinEventLog:Security
+```
+
+System Events
+
+```spl
+index=main sourcetype=WinEventLog:System
+```
+
+Application Events
+
+```spl
+index=main sourcetype=WinEventLog:Application
+```
+
+Failed Logins
+
+```spl
+index=main EventCode=4625
+```
+
+Successful Logins
+
+```spl
+index=main EventCode=4624
+```
+
+PowerShell Activity
+
+```spl
+index=main powershell
+```
+
+Events by Sourcetype
+
+```spl
+index=main
+| stats count by sourcetype
+```
+
+Top Hosts
+
+```spl
+index=main
+| top host
+```
+
+Recent Events
+
+```spl
+index=main
+| head 20
+```
+
+---
+
+# MITRE ATT&CK Mapping
+
+| Tactic | Technique |
+|----------|------------|
+| Initial Access | T1566 – Phishing |
+| Execution | T1059.001 – PowerShell |
+| Credential Access | T1110 – Brute Force |
+| Command and Control | T1071 – Application Layer Protocol |
+| Ingress Tool Transfer | T1105 |
+
+---
+
+# Simulated Incident Response
+
+A simulated phishing investigation was performed using endpoint telemetry collected by Splunk Cloud.
+
+Evidence reviewed included:
+
+- PowerShell execution
+- Windows Security Events
+- Authentication failures
+- Network traffic
+- Endpoint activity
+- Packet captures
+
+The investigation concluded with successful containment and documentation of observed indicators.
+
+See:
+
+```
+Incident-Report.md
+```
+
+---
+
+# Key Takeaways
+
+This project demonstrates practical experience with:
+
+- SIEM deployment
+- Endpoint log collection
+- Windows Event Monitoring
+- Splunk Search Processing Language (SPL)
+- Security investigations
+- Network packet analysis
+- Threat detection
+- Incident response documentation
+
+---
+
+# Repository Structure
+
+```
+Splunk-Cloud-Lab/
+
+├── README.md
+├── Incident-Report.md
+├── screenshots/
+│   ├── step-1-active-forwarder.png
+│   ├── step-2-inputs-conf.png
+│   ├── step-3-list-monitor.png
+│   ├── step-4-splunk-events.png
+│   ├── step-5-event-summary.png
+│   ├── step-6-wireshark-capture.png
+│   ├── step-7-tcp-stream.png
+│   └── step-8-protocol-hierarchy.png
+```
+
+---
+
+# Lessons Learned
+
+This lab reinforced several important security concepts:
+
+- Secure endpoint log forwarding
+- SIEM deployment and administration
+- Windows Event Log collection
+- Log correlation
+- TLS-encrypted forwarding
+- Endpoint visibility
+- Network traffic inspection
+- Security documentation
+- Incident response workflow
+
+---
+
+# Author
+
+**Adam Powell**
+
+Apple Genius • CompTIA Security+ • Jamf 100
+
+Transitioning into Cybersecurity, SOC Operations, and Digital Forensics while building hands-on security labs focused on real-world defensive technologies.
