@@ -1,4 +1,5 @@
-# Splunk Cloud SIEM Monitoring & Incident Response Lab
+# DFIR Incident Response Lab
+### Splunk SIEM Log Analysis • Wireshark Network Forensics • MITRE ATT&CK Mapping
 
 ![Splunk](https://img.shields.io/badge/Splunk-Cloud-000000?style=for-the-badge&logo=splunk)
 ![Windows](https://img.shields.io/badge/Windows-11-0078D6?style=for-the-badge&logo=windows11)
