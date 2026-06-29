@@ -1,6 +1,6 @@
 # Digital Forensics & Incident Response (DFIR) Lab
 
-![Windows](https://img.shields.io/badge/Platform-Windows-blue)
+![Windows](https://img.shields.io/badge/Platform-Windows-blue) 
 
 ![Splunk](https://img.shields.io/badge/SIEM-Splunk-green)
 
