@@ -337,10 +337,16 @@ This project demonstrates practical experience with:
 # Repository Structure
 
 ```
-Splunk-Cloud-Lab/
-
+dfir-incident-response-lab/
+│
 ├── README.md
-├── Incident-Report.md
+│
+├── incident-report/
+│   └── Incident-Report.md
+│
+├── mitre/
+│   └── MITRE-ATTACK-Mapping.md
+│
 ├── screenshots/
 │   ├── step-1-active-forwarder.png
 │   ├── step-2-inputs-conf.png
@@ -350,7 +356,9 @@ Splunk-Cloud-Lab/
 │   ├── step-6-wireshark-capture.png
 │   ├── step-7-tcp-stream.png
 │   └── step-8-protocol-hierarchy.png
-```
+│
+└── diagrams/
+    └── architecture-diagram.png
 
 ---
 
