@@ -1,167 +1,208 @@
-# Incident Report: Suspected Phishing Compromise
+# Incident Report: Simulated Phishing Investigation
 
 ## Incident Summary
 
-**Incident ID:** IR-2026-001  
-**Organization:** AP Technology Group  
-**Incident Type:** Suspected Phishing / Endpoint Compromise  
-**Severity:** Medium  
-**Status:** Contained  
-**Date:** June 2026  
+**Incident ID:** IR-2026-001
+**Organization:** AP Technology Group (Fictional Lab Environment)
+**Incident Type:** Simulated Phishing / Endpoint Investigation
+**Severity:** Medium
+**Status:** Contained (Simulation)
+**Date:** June 2026
 
-## Executive Summary
+---
 
-AP Technology Group investigated a suspected phishing-related endpoint compromise after an employee reported unusual workstation behavior shortly after opening an email attachment.
+# Executive Summary
 
-The investigation identified suspicious PowerShell activity, multiple failed authentication attempts, and outbound network connections to an unrecognized external IP address. Evidence was reviewed through Splunk log analysis, Windows event data, and Wireshark network traffic inspection.
+This report documents a **simulated phishing investigation** performed in a controlled Windows 11 lab environment using Splunk Cloud, Splunk Universal Forwarder, and Wireshark.
 
-The affected workstation was isolated from the network, suspicious activity was documented, and indicators of compromise were collected for further monitoring.
+The objective of the exercise was to demonstrate how endpoint telemetry, Windows Event Logs, and network traffic can be correlated during a security investigation. Windows Security, System, and Application Event Logs were collected by the Splunk Universal Forwarder and securely forwarded to Splunk Cloud. Simultaneously, Wireshark was used to capture and inspect endpoint network traffic.
 
-## Incident Background
+Although this investigation was conducted in a lab environment, it follows industry-standard Digital Forensics and Incident Response (DFIR) methodology.
 
-An employee reported that their Windows workstation became slow and unstable after opening an attachment from what appeared to be a trusted vendor email.
+---
 
-Security monitoring later identified suspicious activity associated with the workstation, including:
+# Investigation Objectives
 
-- PowerShell execution
-- Failed login attempts
-- Unusual outbound network traffic
-- Possible command-and-control behavior
+* Validate Windows Event Log collection
+* Verify secure log forwarding to Splunk Cloud
+* Perform SIEM searches using SPL
+* Capture endpoint traffic with Wireshark
+* Correlate endpoint telemetry with network activity
+* Document findings using professional incident response procedures
 
-## Scope
+---
 
-The investigation focused on:
+# Simulated Incident Background
 
-- One affected Windows workstation
-- One employee user account
-- Windows event activity
-- Splunk security alerts
-- Network traffic captured in Wireshark
+A fictional employee reported unusual workstation behavior after opening a suspicious email attachment believed to originate from a trusted vendor.
 
-At the time of investigation, there was no evidence of lateral movement or confirmed data exfiltration.
+The investigation focused on determining whether the endpoint demonstrated indicators commonly associated with phishing-related compromise.
 
-## Tools Used
+Observed activity included:
 
-- Splunk Enterprise
-- Wireshark
-- Windows PowerShell
-- Windows Event Logs
-- MITRE ATT&CK Framework
-- GitHub Documentation
+* Windows Security Events
+* Windows System Events
+* PowerShell execution review
+* Authentication activity
+* DNS queries
+* ICMP traffic
+* TCP/TLS communications
 
-## Investigation Timeline
+---
 
-| Time | Event |
-|------|-------|
-| 09:18 | Employee reports slow workstation after opening attachment |
-| 09:22 | Security alert reviewed in Splunk |
-| 09:27 | Suspicious PowerShell activity identified |
-| 09:31 | Failed authentication attempts observed |
-| 09:37 | Outbound network traffic reviewed in Wireshark |
-| 09:42 | External IP address flagged as suspicious |
-| 09:50 | Workstation isolated from the network |
-| 10:08 | Indicators of compromise documented |
-| 10:30 | Incident marked as contained |
+# Lab Scope
 
-## Detection
+The investigation included:
 
-The incident was initially detected through a combination of user reporting and security monitoring.
+* One Windows 11 virtual machine
+* Splunk Cloud
+* Splunk Universal Forwarder
+* Windows Event Logs
+* Wireshark packet captures
+* Simulated phishing scenario
 
-Splunk alerts indicated suspicious endpoint activity, including PowerShell execution and repeated authentication failures. These alerts were reviewed alongside network traffic to determine whether the workstation was communicating with an unknown external destination.
+No production systems were involved.
 
-## Analysis
+---
 
-### PowerShell Activity
+# Tools Used
 
-PowerShell activity was considered suspicious because it occurred shortly after the user opened the attachment and did not align with normal user behavior.
+* Splunk Cloud
+* Splunk Universal Forwarder
+* Wireshark
+* Windows PowerShell
+* Windows Event Viewer
+* MITRE ATT&CK Framework
+* GitHub Documentation
 
-The activity suggested possible script execution used to download or execute additional commands.
+---
 
-### Authentication Activity
+# Investigation Timeline
 
-Multiple failed authentication attempts were observed after the suspected phishing event. This raised concern that credentials may have been tested or abused.
+| Time  | Activity                                   |
+| ----- | ------------------------------------------ |
+| 09:00 | Universal Forwarder deployed               |
+| 09:12 | Connected to Splunk Cloud                  |
+| 09:20 | Windows Event Log collection verified      |
+| 09:30 | Wireshark capture initiated                |
+| 09:35 | Generated network traffic (DNS, ICMP, TCP) |
+| 09:42 | Windows events verified in Splunk          |
+| 09:50 | Event correlation completed                |
+| 10:00 | Investigation documented                   |
 
-No successful unauthorized login was confirmed during the investigation.
+---
 
-### Network Traffic
+# Detection
 
-Wireshark analysis showed outbound traffic from the affected workstation to an unfamiliar external IP address.
+The simulated investigation used Windows Event Logs collected through Splunk Universal Forwarder.
 
-The destination was treated as suspicious due to the timing of the traffic and its relationship to the endpoint behavior observed in Splunk.
+Splunk searches were used to review Windows Security, System, and Application events while Wireshark validated network communications generated by the endpoint.
 
-## Findings
+---
 
-The investigation found:
+# Analysis
 
-- The incident likely began with a phishing email attachment.
-- Suspicious PowerShell execution occurred after the attachment was opened.
-- Multiple failed login attempts were observed.
-- Outbound traffic was identified to an unrecognized external IP address.
-- No confirmed lateral movement was identified.
-- No confirmed data exfiltration was identified.
+## Endpoint Telemetry
 
-## Indicators of Compromise
+Windows Event Logs successfully captured endpoint activity and were forwarded securely to Splunk Cloud over TLS.
 
-| Indicator Type | Value |
-|----------------|-------|
-| Hostname | AP-WKS-014 |
-| User Account | j.smith |
-| Suspicious Process | powershell.exe |
-| File Name | invoice_update.docm |
-| External IP | 185.199.108.153 |
-| Event Type | Failed Login Attempts |
+Observed event categories included:
 
-## MITRE ATT&CK Mapping
+* Security
+* System
+* Application
 
-| Tactic | Technique | Description |
-|--------|-----------|-------------|
-| Initial Access | T1566 - Phishing | User opened suspicious attachment |
-| Execution | T1059.001 - PowerShell | Suspicious PowerShell activity observed |
-| Credential Access | T1110 - Brute Force | Multiple failed authentication attempts |
-| Command and Control | T1071 - Application Layer Protocol | Outbound traffic to unknown external IP |
-| Ingress Tool Transfer | T1105 | Possible external payload retrieval |
+---
 
-## Containment
+## Network Traffic
 
-The affected workstation was isolated from the network to prevent further communication with external systems and reduce the risk of lateral movement.
+Wireshark captured live endpoint communications including:
 
-The user account was reviewed for suspicious authentication activity, and identified indicators were documented for continued monitoring.
+* DNS lookups
+* ICMP Echo Requests
+* TCP sessions
+* TLS encrypted traffic
 
-## Eradication
+TCP Stream analysis confirmed successful client/server communications.
 
-Recommended eradication actions included:
+---
 
-- Remove the suspicious email and attachment
-- Review endpoint for unauthorized scripts or files
-- Reset the affected user's password
-- Run endpoint malware scan
-- Review startup items and scheduled tasks
-- Validate that no persistence mechanisms remain
+## SIEM Validation
 
-## Recovery
+Splunk Cloud successfully indexed Windows Event Logs.
 
-Recovery actions included:
+Example SPL searches included:
 
-- Reconnect workstation only after validation
-- Confirm endpoint health
-- Monitor for recurring suspicious traffic
-- Review Splunk alerts for repeated activity
-- Educate the user on phishing indicators
+```spl
+index=main sourcetype=WinEventLog*
+```
 
-## Recommendations
+```spl
+index=main
+| stats count by sourcetype
+```
 
-- Enable stronger phishing email filtering
-- Increase PowerShell logging
-- Implement Sysmon for deeper endpoint visibility
-- Enforce multi-factor authentication
-- Create Splunk alerts for suspicious PowerShell usage
-- Review failed login thresholds
-- Continue user security awareness training
+These searches confirmed successful telemetry ingestion and endpoint visibility.
 
-## Conclusion
+---
 
-This incident demonstrated the importance of correlating user reports, endpoint activity, SIEM alerts, and network traffic during an investigation.
+# Findings
 
-Although no confirmed data exfiltration or lateral movement was identified, the suspicious PowerShell execution and outbound network traffic justified containment and further monitoring.
+The investigation confirmed:
 
-The incident was contained successfully, and documented indicators were preserved for future detection and investigation.
+* Universal Forwarder successfully authenticated to Splunk Cloud.
+* Windows Event Logs were collected successfully.
+* Endpoint telemetry was searchable using SPL.
+* Network communications were successfully captured using Wireshark.
+* Endpoint activity could be correlated across multiple data sources.
+
+---
+
+# Indicators Reviewed
+
+| Indicator        | Observation                   |
+| ---------------- | ----------------------------- |
+| Hostname         | APPOWELL6210                  |
+| Event Logs       | Security, System, Application |
+| Network Activity | DNS, ICMP, TCP, TLS           |
+| Packet Capture   | Wireshark                     |
+| SIEM             | Splunk Cloud                  |
+| Log Forwarder    | Splunk Universal Forwarder    |
+
+---
+
+# MITRE ATT&CK Mapping
+
+| Tactic              | Technique                            |
+| ------------------- | ------------------------------------ |
+| Initial Access      | T1566 – Phishing                     |
+| Execution           | T1059.001 – PowerShell               |
+| Discovery           | T1082 – System Information Discovery |
+| Command and Control | T1071 – Application Layer Protocol   |
+
+---
+
+# Lessons Learned
+
+This exercise demonstrated the complete workflow of collecting endpoint telemetry, validating secure log forwarding, performing SIEM analysis, inspecting network traffic, and documenting an incident using industry-standard DFIR methodology.
+
+The lab also reinforced the importance of correlating multiple sources of evidence when investigating potential security events.
+
+---
+
+# Recommendations
+
+* Continue expanding Windows logging coverage.
+* Deploy Sysmon for enhanced endpoint visibility.
+* Develop custom Splunk detection searches.
+* Implement automated Splunk alerts.
+* Expand packet analysis to include PCAP-based investigations.
+* Continue mapping detections to MITRE ATT&CK.
+
+---
+
+# Conclusion
+
+This simulated investigation successfully demonstrated an end-to-end security monitoring workflow using Splunk Cloud and Wireshark.
+
+The project validated secure Windows Event Log collection, SIEM analysis, packet capture, and incident documentation while reinforcing practical skills used in SOC and DFIR environments.
