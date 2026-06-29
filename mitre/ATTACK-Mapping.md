@@ -2,83 +2,52 @@
 
 ## Overview
 
-This document maps the observed attacker behaviors from the simulated incident to the MITRE ATT&CK framework.
-
-The objective is to identify adversary tactics and techniques that align with the activity observed during the investigation.
+This lab demonstrates how endpoint telemetry and network traffic can be correlated during a simulated phishing investigation. The observed activity has been mapped to the MITRE ATT&CK Framework to illustrate how common attacker behaviors align with defensive monitoring.
 
 ---
 
-## MITRE ATT&CK Mapping
+## ATT&CK Mapping
 
-| ATT&CK Tactic | Technique ID | Technique | Evidence |
-|--------------|--------------|-----------|----------|
-| Initial Access | T1566 | Phishing | User opened a suspicious email attachment. |
-| Execution | T1059.001 | PowerShell | Suspicious PowerShell activity observed shortly after the attachment was opened. |
-| Credential Access | T1110 | Brute Force | Multiple failed authentication attempts identified during log review. |
-| Command and Control | T1071 | Application Layer Protocol | Outbound HTTPS communication observed to an unfamiliar external IP address. |
-| Command and Control | T1105 | Ingress Tool Transfer | PowerShell activity suggested possible download of an additional payload. |
-
----
-
-## ATT&CK Matrix Summary
-
-| Tactic | Status |
-|---------|--------|
-| Initial Access | Identified |
-| Execution | Identified |
-| Credential Access | Suspected |
-| Command and Control | Identified |
+| Tactic              | Technique                    | ID        | Evidence                                                        |
+| ------------------- | ---------------------------- | --------- | --------------------------------------------------------------- |
+| Initial Access      | Phishing                     | T1566     | Simulated phishing email used as the investigation scenario.    |
+| Execution           | PowerShell                   | T1059.001 | Windows Event Logs reviewed for PowerShell activity.            |
+| Discovery           | System Information Discovery | T1082     | Windows system information and endpoint telemetry collected.    |
+| Credential Access   | Brute Force                  | T1110     | Failed authentication events reviewed during the investigation. |
+| Command and Control | Application Layer Protocol   | T1071     | TCP/TLS communications inspected using Wireshark.               |
 
 ---
 
-## Investigation Notes
+## Defensive Data Sources
 
-### Initial Access
+The following data sources were used throughout the investigation:
 
-The investigation determined that the incident most likely began when a user opened a phishing email attachment disguised as a legitimate vendor document.
-
----
-
-### Execution
-
-Immediately following the attachment execution, PowerShell activity was observed that was inconsistent with normal workstation behavior.
-
-This activity was considered suspicious due to its timing and relationship to the reported phishing email.
+* Windows Security Event Logs
+* Windows System Event Logs
+* Windows Application Event Logs
+* Splunk Cloud SIEM
+* Splunk Universal Forwarder
+* Wireshark Packet Captures
 
 ---
 
-### Credential Access
+## Detection Opportunities
 
-Following the PowerShell activity, several failed authentication attempts were identified.
+Potential detections that could be implemented include:
 
-Although no successful unauthorized login was confirmed, the activity warranted additional monitoring.
-
----
-
-### Command and Control
-
-Wireshark analysis identified outbound HTTPS traffic from the affected workstation to an unfamiliar external IP address.
-
-While encrypted traffic is common, the timing and destination aligned with the suspected compromise.
+* Alert on excessive failed logon attempts.
+* Monitor PowerShell execution from unusual parent processes.
+* Detect unusual outbound TCP/TLS connections.
+* Identify suspicious authentication patterns.
+* Correlate endpoint events with network traffic.
 
 ---
 
-## Defensive Recommendations
+## Skills Demonstrated
 
-To improve future detection and response capabilities, the following controls are recommended:
-
-- Implement enhanced PowerShell logging.
-- Enable Sysmon for endpoint telemetry.
-- Configure Splunk detections for suspicious PowerShell execution.
-- Monitor repeated failed authentication attempts.
-- Review outbound HTTPS traffic to unfamiliar destinations.
-- Continue user phishing awareness training.
-
----
-
-## References
-
-- MITRE ATT&CK Framework
-- Splunk Enterprise
-- Wireshark
-- Windows Event Logs
+* MITRE ATT&CK Mapping
+* Endpoint Telemetry Analysis
+* Windows Event Log Analysis
+* Splunk Search Processing Language (SPL)
+* Network Traffic Analysis
+* Digital Forensics & Incident Response (DFIR)
