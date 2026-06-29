@@ -1,5 +1,15 @@
 # Digital Forensics & Incident Response (DFIR) Lab
 
+![Windows](https://img.shields.io/badge/Platform-Windows-blue)
+
+![Splunk](https://img.shields.io/badge/SIEM-Splunk-green)
+
+![Wireshark](https://img.shields.io/badge/Network-Wireshark-blue)
+
+![MITRE ATT&CK](https://img.shields.io/badge/Framework-MITRE_ATT%26CK-red)
+
+![DFIR](https://img.shields.io/badge/Discipline-DFIR-orange)
+
 ## Overview
 
 This project documents a simulated Digital Forensics and Incident Response (DFIR) investigation for a suspected phishing attack within a fictional organization, **AP Technology Group**.
