@@ -353,7 +353,7 @@ dfir-incident-response-lab/
 │   └── Incident-Report.md
 │
 ├── mitre/
-│   └── MITRE-ATTACK-Mapping.md
+│   └── ATTACK-Mapping.md
 │
 ├── screenshots/
 │   ├── step-1-active-forwarder.png
