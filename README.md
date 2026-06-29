@@ -99,8 +99,6 @@ Search • Detection • Investigation
 
 # Repository Structure
 
-## Repository Structure
-
 ```text
 dfir-incident-response-lab/
 │
