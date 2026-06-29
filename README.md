@@ -344,7 +344,7 @@ This project demonstrates practical experience with:
 
 # Repository Structure
 
-```
+
 dfir-incident-response-lab/
 │
 ├── README.md
